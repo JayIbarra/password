@@ -21,7 +21,7 @@ function getPasswordOptions() {
 
   // Prompt to ask for character count for the password
   var length = parseInt(
-    prompt("How many characters would you like to have for your password?")
+    prompt("How many characters would you like your password to be?")
   );
 
   // Conditional statement alert a number length is not provided
@@ -38,21 +38,21 @@ function getPasswordOptions() {
 
   // Conditional statement alert for if not a number length. Long.
   if (length > 128) {
-  alert("Your password will be too long! Please select less than 129 character."); 
+  alert("Your password will be too long! Please select less than 129 characters."); 
   return null;
   }
 
   // Storing the password criteria 
-  var hasSpecialCharacters = confirm("Select OK to accept including the password criteria of special characters.");
+  var hasSpecialCharacters = confirm("Select OK to accept including the special characters password criteria.");
 
   // Storing number criteria
-  var hasNumericCharacters = confirm("Select OK to accept including the password criteria of numerical characters.");
+  var hasNumericCharacters = confirm("Select OK to accept including the numerical characters password criteria.");
 
   // Storing lowercased character criteria
-  var hasLowerCasedCharacters = confirm("Select OK to accept including the password criteria of lowercased characters.");
+  var hasLowerCasedCharacters = confirm("Select OK to accept including the lowercased characters password criteria.");
 
   // Storing uppercased character criteria
-  var hasUpperCasedCharacters = confirm("Select OK to accept including the password criteria of uppercased characters.");
+  var hasUpperCasedCharacters = confirm("Select OK to accept including the uppercased characters password criteria.");
 
   // Conditional statement for password 
   if
@@ -84,7 +84,7 @@ return passwordOptions;
 // Random integer element
 function getRandom(arr) {
   var randIndex = Math.floor(Math.random() * arr.length);
-  var randElement = arr(randIndex);
+  var randElement = arr[randIndex];
 
   return randElement;
 }
@@ -106,14 +106,14 @@ function generatePassword() {
 
   // Conditional statement = special characters
   if (options.hasSpecialCharacters) {
-    possibleCharacters = possibleCharacter.concat(specialCharacters);
+    possibleCharacters = possibleCharacters.concat(specialCharacters);
     guaranteedCharacters.push(getRandom(specialCharacters));
   }
 
   // Conditional statement - numbers
   if (options.hasNumericCharacters) {
     possibleCharacters = possibleCharacters.concat(NumericCharacters);
-    guaranteedCharacters.push(getRandom(NumericCharacters));
+    guaranteedCharacters.push(getRandom(numericCharacters));
   }
 
   // Conditional statement - lowercased
@@ -132,7 +132,7 @@ function generatePassword() {
   for (var i = 0; i < options.length; i++) {
     var possibleCharacter = getRandom(possibleCharacters);
 
-    result.push(possibleCharacters);
+    result.push(possibleCharacter);
   }
   
   // Use one of a character
