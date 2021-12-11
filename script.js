@@ -27,19 +27,19 @@ function getPasswordOptions() {
   // Conditional statement alert a number length is not provided
   if (Number.isNaN(length)) {
   alert("Your password must include a number length!"); 
-  return null;
+  return getPasswordOptions();
   }
 
   // Conditional statement alert for if not a number length. Short.
   if (length < 8) {
   alert("Your password will be too short! Please select up to 8 characters."); 
-  return null;
+  return getPasswordOptions();
   }
 
   // Conditional statement alert for if not a number length. Long.
   if (length > 128) {
   alert("Your password will be too long! Please select less than 129 characters."); 
-  return null;
+  return getPasswordOptions();
   }
 
   // Storing the password criteria 
@@ -71,11 +71,11 @@ function getPasswordOptions() {
 
 // Storing the data
 var passwordOptions = {
-    length: length,
-    hasSpecialCharacters: hasSpecialCharacters,
-    hasNumericCharacters: hasNumericCharacters,
-    hasLowerCasedCharacters: hasLowerCasedCharacters,
-    hasUpperCasedCharacters: hasUpperCasedCharacters
+    length,
+    hasSpecialCharacters,
+    hasNumericCharacters,
+    hasLowerCasedCharacters,
+    hasUpperCasedCharacters
   }; 
 
 return passwordOptions; 
@@ -102,7 +102,8 @@ function generatePassword() {
   var guaranteedCharacters = [];
 
   // If there's not an option, exit the password generator
-  if (options) return null;
+  if (!options) return null;
+
 
   // Conditional statement = special characters
   if (options.hasSpecialCharacters) {
@@ -112,7 +113,7 @@ function generatePassword() {
 
   // Conditional statement - numbers
   if (options.hasNumericCharacters) {
-    possibleCharacters = possibleCharacters.concat(NumericCharacters);
+    possibleCharacters = possibleCharacters.concat(numericCharacters);
     guaranteedCharacters.push(getRandom(numericCharacters));
   }
 
@@ -124,8 +125,8 @@ function generatePassword() {
 
   // Conditional statement - uppercased
   if (options.hasUpperCasedCharacters) {
-  possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
-  guaranteedCharacters.push(getRandom(upperCasedCharacters));
+    possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
+    guaranteedCharacters.push(getRandom(upperCasedCharacters));
   }
 
   // Password length options
@@ -139,7 +140,7 @@ function generatePassword() {
   for (var i = 0; i < guaranteedCharacters.length; i++) {
     result[i] = guaranteedCharacters[i];
   }
-
+  console.log(result)
   // Generate password
   return result.join('');
 }
