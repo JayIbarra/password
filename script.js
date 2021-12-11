@@ -4,7 +4,7 @@
  var specialCharacters = ["!", "?", "#", "$", "%", "&", "*", "+", "@"];
 
  // Length of password greater than 8 characters and less than 128
- var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8"];
+ var numericalCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8"];
 
   // List of characters A-Z for password. Upper.
   var upperCasedCharacters = ["A", "B", "C", "D" ,"E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -46,7 +46,7 @@ function getPasswordOptions() {
   var hasSpecialCharacters = confirm("Select OK to accept including the special characters password criteria.");
 
   // Storing number criteria
-  var hasNumericCharacters = confirm("Select OK to accept including the numerical characters password criteria.");
+  var hasNumericalCharacters = confirm("Select OK to accept including the numerical characters password criteria.");
 
   // Storing lowercased character criteria
   var hasLowerCasedCharacters = confirm("Select OK to accept including the lowercased characters password criteria.");
@@ -58,7 +58,7 @@ function getPasswordOptions() {
   if
     (hasSpecialCharacters === false &&
     hasLowerCasedCharacters === false &&
-    hasNumericCharacters === false &&
+    hasNumericalCharacters === false &&
     hasUpperCasedCharacters === false)
     
     {
@@ -73,7 +73,7 @@ function getPasswordOptions() {
 var passwordOptions = {
     length,
     hasSpecialCharacters,
-    hasNumericCharacters,
+    hasNumericalCharacters,
     hasLowerCasedCharacters,
     hasUpperCasedCharacters
   }; 
@@ -112,9 +112,9 @@ function generatePassword() {
   }
 
   // Conditional statement - numbers
-  if (options.hasNumericCharacters) {
-    possibleCharacters = possibleCharacters.concat(numericCharacters);
-    guaranteedCharacters.push(getRandom(numericCharacters));
+  if (options.hasNumericalCharacters) {
+    possibleCharacters = possibleCharacters.concat(numericalCharacters);
+    guaranteedCharacters.push(getRandom(numericalCharacters));
   }
 
   // Conditional statement - lowercased
